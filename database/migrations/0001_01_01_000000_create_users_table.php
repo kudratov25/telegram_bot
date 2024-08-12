@@ -15,6 +15,9 @@ return new class extends Migration
             $table->id();
             $table->string('phone');
             $table->string('telegram_id')->unique();
+            $table->string('first_name')->nullable();
+            $table->string('last_name')->nullable();
+            $table->enum('role', ['admin', 'customer', 'delivery_person'])->default('customer');
             $table->timestamp('verified_at')->nullable();
             $table->rememberToken();
             $table->timestamps();

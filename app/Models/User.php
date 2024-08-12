@@ -19,6 +19,8 @@ class User extends Authenticatable
     protected $fillable = [
         'phone',
         'telegram_id',
+        'first_name',
+        'last_name',
         'verified_at',
     ];
 
@@ -43,5 +45,13 @@ class User extends Authenticatable
             'email_verified_at' => 'datetime',
             'password' => 'hashed',
         ];
+    }
+    public function orders()
+    {
+        return $this->hasMany(Order::class);
+    }
+    public function foods()
+    {
+        return $this->hasMany(Food::class);
     }
 }

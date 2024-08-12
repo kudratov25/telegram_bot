@@ -119,7 +119,7 @@ class StartConversation extends Conversation
     {
 
         $bot->deleteMessages($bot->chat()->id, $this->messageIds);
-        $webAppInfo = new WebAppInfo(url: 'https://google.com');
+        $webAppInfo = new WebAppInfo(url: env('WEB_APP_URL'));
         $message = $bot->sendMessage(
             text: 'Tasdiqlash muvaffaqiyatli yakunlandi. Buyurtma berishingiz mumkin!',
             reply_markup: InlineKeyboardMarkup::make()->addRow(
